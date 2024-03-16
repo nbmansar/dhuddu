@@ -72,6 +72,7 @@ const Content = () => {
                 ))}
             </ul> */}
 
+        {data.length !== 0 ?
             <ul>
                 {data.map((datas)=>(
                     <li className='contentItem' key={datas.id}>
@@ -81,6 +82,9 @@ const Content = () => {
                     </li>
                 ))}
             </ul>
+    :
+   <p>No Record found</p> 
+}
         </div>
     )
 }
