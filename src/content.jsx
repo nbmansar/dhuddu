@@ -1,8 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
-import { FaTrashAlt } from 'react-icons/fa';
+import ItemList from './ItemList';
+import AddItem from './AddItem';
 
-const Content = () => {
+const Content = ({data,handleCheck,handleDelete,handleAdd}) => {
     // const [count,setCount] = useState(3);
     // const [glow,notGlow] = useState(false);
     // function AnsMinus(){
@@ -33,31 +33,7 @@ const Content = () => {
     //     setFilteredItems(filtered);
     // }
 
-    const [data,setData] = useState([
-        {
-            'id':1,
-            'name':'Ansar',
-            'checked':false
-        },
-        {
-            'id':2,
-            'name':'Ariff',
-            'checked':true
-        }
-    ]);
-
-    const handleCheck = (id) => {
-        const newVal = data.map((datas)=>datas.id === id ? {...datas,checked:!datas.checked}:datas);
-        setData(newVal)
-    }
-
-        const handleDelete = (id) =>{
-            if(window.confirm("Are you want to Delete ?")){
-            const delVal = data.filter(datas => datas.id !== id)
-            setData(delVal);
-            }
-        }
-
+    
     return (
         <div className='TextTwist'>
          {/* <button onClick={()=>AnsMinus()}>-</button>
@@ -72,16 +48,15 @@ const Content = () => {
                 ))}
             </ul> */}
 
+        <AddItem 
+          handleAdd={handleAdd}
+        />
         {data.length !== 0 ?
-            <ul>
-                {data.map((datas)=>(
-                    <li className='contentItem' key={datas.id}>
-                        <input type="checkbox" checked={datas.checked} onChange={()=>handleCheck(datas.id)}></input>
-                        <label style={(datas.checked) ? {textDecoration:'line-through'}:null}>{datas.name}</label>
-                        <FaTrashAlt role='button' onClick={()=>handleDelete(datas.id)}/>
-                    </li>
-                ))}
-            </ul>
+           <ItemList 
+           data={data}
+      handleCheck={handleCheck}
+      handleDelete={handleDelete}
+           />
     :
    <p>No Record found</p> 
 }

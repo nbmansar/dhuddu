@@ -1,11 +1,15 @@
 import React from "react";
 
-const Header = () =>{
+const Header = (props) =>{
     return (
         <div className="headerField" style={{position:"relative",top:0,background:"blue",width:"100%",height:"20vh;",color:"white",textAlign:"center"}}>
-            To Do List
+            {props.title}
         </div>
     );
 }
+
+Header.defaultProps = {
+    'title':'To do List'
+};
 
 export default Header;
