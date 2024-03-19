@@ -2,7 +2,7 @@ import React from 'react';
 import ItemList from './ItemList';
 import AddItem from './AddItem';
 
-const Content = ({data,handleCheck,handleDelete,handleAdd}) => {
+const Content = ({data,handleCheck,handleDelete}) => {
     // const [count,setCount] = useState(3);
     // const [glow,notGlow] = useState(false);
     // function AnsMinus(){
@@ -35,7 +35,7 @@ const Content = ({data,handleCheck,handleDelete,handleAdd}) => {
 
     
     return (
-        <div className='TextTwist'>
+        <div className='TextTwist' style={{margin: 'auto',display:'flex',justifyContent: 'center',height: '50vh',overflowY:'scroll',width: '30%',marginTop:'20px'}} >
          {/* <button onClick={()=>AnsMinus()}>-</button>
             <p>{count > 0 ? count:0}</p>
             <button onClick={()=>AnsPlus()}>+</button>
@@ -48,9 +48,7 @@ const Content = ({data,handleCheck,handleDelete,handleAdd}) => {
                 ))}
             </ul> */}
 
-        <AddItem 
-          handleAdd={handleAdd}
-        />
+
         {data.length !== 0 ?
            <ItemList 
            data={data}
@@ -60,6 +58,7 @@ const Content = ({data,handleCheck,handleDelete,handleAdd}) => {
     :
    <p>No Record found</p> 
 }
+
         </div>
     )
 }

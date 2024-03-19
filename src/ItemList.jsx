@@ -4,7 +4,7 @@ import ListItem from './ListItem';
 
  const ItemList = ({data,handleCheck,handleDelete}) => {
   return (
-    <ul>
+    <ul style={{display:'inline-grid'}}>
     {data.map((datas)=>(
         <ListItem
           datas={datas}
